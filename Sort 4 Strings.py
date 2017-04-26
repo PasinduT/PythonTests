@@ -37,18 +37,22 @@ def biggerthan(name1,name2):
 
 #The main program
 
-a=[]
+def main(numberOfNames):
+    names = []
+    for i in range(numberOfNames):
+        nam = input("Enter a name: ")
+        names.append(nam)
+        
+    #Bubble Sort
+    sorted = False
+    while(!sorted):
+        sorted = True
+        for i in range(numberOfNames):
+            if biggerthan(names[i], names[i + 1]):
+                names[i], names[i + 1] = names[i + 1], names[i]
+                sorted = False
+                
+    return names
 
-for i in range(4):
-    c = raw_input("Enter a name: ")
-    a.append(c)
-
-for i in range(4):
-    for j in range(i+1,4,1):
-        if(biggerthan(a[i],a[j])):
-            t= a[i]
-            a[i]=a[j]
-            a[j]=t
-
-for j in range(4):
-    print(a[j])
+#----Example---#
+print(main(4))
